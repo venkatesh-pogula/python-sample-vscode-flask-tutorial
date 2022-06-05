@@ -16,6 +16,11 @@ pipeline{
                 sh "flake8 ."
             }
         }
+        stage('pytest'){
+            steps{
+                sh "pytest --doctest-modules --junitxml=junit/test-results.xml --cov=. --cov-report=xml"
+            }
+        }
 
     }
     post{
