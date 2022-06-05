@@ -12,10 +12,10 @@ pipeline{
                        flake8 . '''
             }
         }
-        stage('testreult'){
-            steps{
-                Junit '**/test-*.xml'
-            }
+    }
+    post{
+        success{
+            junit '**/test-*.xml'
         }
     }
 }
