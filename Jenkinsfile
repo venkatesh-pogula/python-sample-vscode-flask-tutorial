@@ -11,17 +11,16 @@ pipeline{
                 sh "pip install -r requirements.txt"
             }
         }
-        stage('flake'){
-            steps{
-                sh "flake8 ."
-            }
-        }
         stage('pytest'){
             steps{
                 sh "pytest --doctest-modules --junitxml=junit/test-results.xml --cov=. --cov-report=xml"
             }
         }
-
+        stage('flake'){
+            steps{
+                sh "flake8 ."
+            }
+        }
     }
     post{
         success{
