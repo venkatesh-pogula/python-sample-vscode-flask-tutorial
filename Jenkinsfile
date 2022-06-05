@@ -13,7 +13,7 @@ pipeline{
         }
         stage('pytest'){
             steps{
-                sh "pytest --doctest-modules --junitxml=junit/test-results.xml --cov=. --cov-report=xml"
+                sh "pytest"
             }
         }
         stage('flake'){
