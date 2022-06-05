@@ -8,10 +8,15 @@ pipeline{
         }
         stage('build'){
             steps{
-                sh ''' pip install -r requirements.txt
-                       flake8 . '''
+                sh "pip install -r requirements.txt"
             }
         }
+        stage('flake'){
+            steps{
+                sh "flake8 ."
+            }
+        }
+
     }
     post{
         success{
