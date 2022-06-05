@@ -1,5 +1,5 @@
 pipeline{
-    agent{label ('node_java_11')}
+    agent{ label 'node_java_11'}
     stages{
         stage('scm'){
             steps{
